@@ -43,6 +43,10 @@ const Signup = (props) => {
           cPassword: "",
         });
       } else if (responseData.success) {
+        // Ensure any existing session (e.g., previously logged-in admin) is cleared
+        if (localStorage.getItem("jwt")) {
+          localStorage.removeItem("jwt");
+        }
         setData({
           success: responseData.success,
           name: "",
@@ -52,6 +56,8 @@ const Signup = (props) => {
           loading: false,
           error: false,
         });
+        // Optionally, redirect users to login so they sign in with the new account
+        // window.location.href = "/";
       }
     } catch (error) {
       console.log(error);

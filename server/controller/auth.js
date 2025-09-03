@@ -66,12 +66,14 @@ class Auth {
               };
               return res.json({ error });
             } else {
+              // Make ONLY the very first user an admin, others are customers
+              const userCount = await userModel.countDocuments({});
+              const roleForNewUser = userCount === 0 ? 1 : 0;
               let newUser = new userModel({
                 name,
                 email,
                 password,
-                // ========= Here role 1 for admin signup role 0 for customer signup =========
-                userRole: 1, // Field Name change to userRole from role
+                userRole: roleForNewUser,
               });
               newUser
                 .save()

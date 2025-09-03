@@ -78,7 +78,7 @@ Folders are auto‑created; contents are ignored by Git.
 
 ## Admin signup note
 
-In `controller/auth.js`, signup currently sets `userRole: 1` (admin). Switch to `0` if you want normal users by default and create an admin separately.
+Only the very first user who signs up is assigned admin (`userRole: 1`). All subsequent signups are customers (`userRole: 0`). If you need to change roles later, add an admin‑only route to promote a user.
 
 ## Troubleshooting
 
