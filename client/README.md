@@ -1,36 +1,70 @@
-## Available Scripts
+## Client (React) – Hayroo E‑commerce
 
-In the project directory, you can run:
+This is the React front‑end for the Hayroo MERN e‑commerce application. It provides the customer‑facing shop, authentication, product browsing, cart/checkout UI, reviews, and a basic admin interface (under `components/admin`) to manage categories, products, and orders.
 
-### `npm start`
+### What the client does
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Customer shop flow (under `src/shop/`):
+  - Home, product listing by category/price, product details with reviews
+  - Wishlist and Cart views, Checkout flow (Braintree payment UI)
+  - User auth (login/signup) and protected routes
+  - User dashboard: profile, orders, settings
+- Admin (under `src/components/admin/`):
+  - Manage categories (create/edit/delete with image upload)
+  - Manage products (create/edit/delete with images, price, offer, status)
+  - View orders and dashboard metrics
+- Shared UI (under `src/shop/partials/`): navbar, cart modal, footer, etc.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The client talks to the Express API served by the `server/` at `http://localhost:8000/api` by default. Axios is used for HTTP calls and JWT is used for authentication.
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js installed
+- Back‑end server running (see `../server/README.md`)
 
-### `npm run build`
+### Install & run
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm install
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Start the development server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm start
+```
 
-### `npm run eject`
+If you see an OpenSSL/webpack error on newer Node versions (Node 18/20):
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- One‑time run for your current shell:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+$env:NODE_OPTIONS="--openssl-legacy-provider"; npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Or update `package.json` start script to set the flag automatically on Windows:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+"start": "set NODE_OPTIONS=--openssl-legacy-provider&& react-scripts start"
+```
+
+Open http://localhost:3000
+
+### Build for production
+
+```
+npm run build
+```
+
+Outputs files to `build/` (ignored in VCS).
+
+### First‑time usage flow (important)
+
+When you run the app for the first time, the shop will look empty because no categories/products exist yet. To populate data:
+
+1. Create an admin user (see server README) and log in.
+2. Go to the admin panel in the UI.
+3. Add categories (with images), then add products under those categories.
+4. Return to the shop view; products now appear for customers.
+
+Reviews and orders will also start to show once users interact with products and complete checkout.
