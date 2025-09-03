@@ -1,6 +1,6 @@
 # Server (Express + MongoDB)
 
-This directory contains the Express API for the Hayroo MERN e‑commerce app. It exposes endpoints for authentication, categories, products with image uploads, orders, users, and checkout via Braintree.
+This directory contains the Express API for the AuroraMart MERN e‑commerce app. It exposes endpoints for authentication, categories, products with image uploads, orders, users, and checkout via Braintree.
 
 ## Features
 
@@ -27,7 +27,7 @@ This directory contains the Express API for the Hayroo MERN e‑commerce app. It
 Create `server/.env`:
 
 ```
-DATABASE=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/hayroo?retryWrites=true&w=majority
+DATABASE=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/AuroraMart?retryWrites=true&w=majority
 PORT=8000
 BRAINTREE_MERCHANT_ID=your_sandbox_merchant_id
 BRAINTREE_PUBLIC_KEY=your_sandbox_public_key
@@ -36,7 +36,7 @@ JWT_SECRET=your_secret_here
 ```
 
 Notes:
-- Local Mongo alternative: `mongodb://localhost:27017/hayroo`
+- Local Mongo alternative: `mongodb://localhost:27017/AuroraMart`
 - Code currently reads JWT secret from `config/keys.js`; keep both consistent or refactor to env.
 
 ## Connect to MongoDB (Atlas)

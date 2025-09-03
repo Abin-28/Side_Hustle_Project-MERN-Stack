@@ -40,7 +40,7 @@ Access the web app at http://localhost:3000/
 
 ## What this project is
 
-Hayroo is a MERN e‑commerce app:
+AuroraMart is a MERN e‑commerce app:
 
 - Client: React (shop UI, admin UI, auth, checkout)
 - Server: Node/Express (REST API), MongoDB with Mongoose, Braintree payments
@@ -66,7 +66,7 @@ All data is stored in MongoDB. Uploaded images are stored under `server/public/u
 Create a `server/.env` with at least:
 
 ```
-DATABASE=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/hayroo?retryWrites=true&w=majority
+DATABASE=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/AuroraMart?retryWrites=true&w=majority
 PORT=8000
 BRAINTREE_MERCHANT_ID=your_sandbox_merchant_id
 BRAINTREE_PUBLIC_KEY=your_sandbox_public_key

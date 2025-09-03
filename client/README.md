@@ -1,6 +1,6 @@
-## Client (React) – Hayroo E‑commerce
+## Client (React) – AuroraMart E‑commerce
 
-This is the React front‑end for the Hayroo MERN e‑commerce application. It provides the customer‑facing shop, authentication, product browsing, cart/checkout UI, reviews, and a basic admin interface (under `components/admin`) to manage categories, products, and orders.
+This is the React front‑end for the AuroraMart MERN e‑commerce application. It provides the customer‑facing shop, authentication, product browsing, cart/checkout UI, reviews, and a basic admin interface (under `components/admin`) to manage categories, products, and orders.
 
 ### What the client does
 
